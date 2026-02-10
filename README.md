@@ -24,6 +24,11 @@ in the form x,y,Direction e.g. 1,3,NORTH
 - `HELP`    Display a help message.
 - `EXIT`    Exit the simulator.
 
+# Running Tests
+To run the tests, pytest must be installed to the environment. This has been added as an optional
+dependency to the pyproject.toml and can be installed using `uv sync --extra dev`.
+Tests can then be run using uv run pytest.
+
 # Installing UV
 Windows
 - `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
