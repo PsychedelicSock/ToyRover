@@ -22,7 +22,8 @@ class InputController:
     input management and command execution functionality.
 
     Pass a string input to the process_input function to generate a tuple containing a Command
-    and any args, then pass this result to run_command to execute the command.
+    and any args, then pass this result to run_command to execute the command. Alternatively the
+    process_and_run_input can take a string input directly and execute the corresponding command.
     """
 
     _board: Board

@@ -24,6 +24,16 @@ in the form x,y,Direction e.g. 1,3,NORTH
 - `HELP`    Display a help message.
 - `EXIT`    Exit the simulator.
 
+# Demos
+Three example files have been provided in the example_inputs directory:
+- `example_inputs.txt` contains the specification's examples.
+- `long_inputs.txt` contains a chain of events that move the full length of the board but never
+enter the out of bounds region.
+- `oob_inputs.txt` contains a chain of events including out of bound operations.
+
+These files can be run in the simulator with the command `FILE <filepath>`, e.g. if run from the
+root directory `FILE example_inputs/long_inputs.txt`
+
 # Running Tests
 To run the tests, pytest must be installed to the environment. This has been added as an optional
 dependency to the pyproject.toml and can be installed using `uv sync --extra dev`.

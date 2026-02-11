@@ -76,7 +76,7 @@ def test_sim_system(capsys):
     input_controller.process_and_run_input("RIGHT")
     input_controller.process_and_run_input("MOVE")
     input_controller.process_and_run_input("MOVE")
-    input_controller.process_and_run_input("REPROT")
+    input_controller.process_and_run_input("REPORT")
 
     expected_x = 0.0
     expected_y = 5.0
@@ -84,8 +84,10 @@ def test_sim_system(capsys):
 
     # Extract rover position and direction from report output
     captured, err = capsys.readouterr()
-    capture_pos = re.match(r"Rover Position: ([\d.]+), ([\d.]+)", captured)
-    x, y = float(capture_pos.group(1)), float(capture_pos.group(2))
+    capture_pos = re.findall(r"Rover Position: ([\d.]+), ([\d.]+)", captured)
+    # Moving to OOB adds some error logging to stdout so use findall and assert only 1 capture group
+    assert len(capture_pos) == 1, "Expected one report of position."
+    x, y = float(capture_pos[0][0]), float(capture_pos[0][1])
 
     assert np.isclose(expected_x, x)
     assert np.isclose(expected_y, y)
